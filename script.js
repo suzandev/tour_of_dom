@@ -51,3 +51,53 @@ li.innerText = "pahartoli bon";
 
 placesList.appendChild(li);
 */
+
+/*
+// =-=-=-=-=-=-= nClick event handler -=-=-=-=-==-=
+// ==== backgroundColor green button option : 1 ======
+function makeGreen() {
+  document.body.style.backgroundColor = "green";
+}
+
+document.getElementById("make_yellow").addEventListener("click", function () {
+  document.body.style.backgroundColor = "yellow";
+});
+
+*/
+
+/*
+
+// =-=-=-=-=-=-= Event Delegate -=-=-=-=-==-=
+
+// const items = document.getElementsByClassName("item");
+// for (const item of items) {
+//   item.addEventListener("click", function (e) {
+//     // console.log(e.target.parentNode); // li ke clicked korle parent div ke paoya jabe.
+
+//     e.target.parentNode.removeChild(e.target); // jeita clicked hobe oita ke removed korbe.
+//   });
+// }
+
+// ====== add and remove items =====
+
+document
+  .getElementById("list_container")
+  .addEventListener("click", function (e) {
+    e.target.parentNode.removeChild(e.target);
+  });
+
+document.getElementById("btn_add_item").addEventListener("click", function (e) {
+  const listContainer = document.getElementById("list_container");
+
+  const li = document.createElement("li");
+  li.innerText = "brand new item added";
+  li.classList.add("item");
+  listContainer.appendChild(li);
+});
+
+*/
+
+// =-=-==- keyup Event Handlers
+document.getElementById("user_email").addEventListener("keyup", function (e) {
+  console.log(e.target.value);
+});
