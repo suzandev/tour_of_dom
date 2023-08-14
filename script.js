@@ -52,8 +52,37 @@ li.innerText = "pahartoli bon";
 placesList.appendChild(li);
 */
 
-/*
-// =-=-=-=-=-=-= nClick event handler -=-=-=-=-==-=
+// =-=-=-=-=-= input box handler section =-=-=-=-=-=
+
+document.getElementById("btn_update").addEventListener("click", function () {
+  const inputField = document.getElementById("input_field");
+  const p = document.querySelector(".input_text_display");
+
+  if (inputField.value === "") {
+    p.innerText = "Give Me Some Items";
+  } else {
+    const inputText = inputField.value;
+    p.innerText = inputText;
+    inputField.value = "";
+  }
+});
+
+// =-=-=-=-=-= TextArea handler section =-=-=-=-=-=
+
+const TextArea = document.getElementById("text_area");
+const newComment = document.getElementById("new_comment");
+const postBtn = document.getElementById("post_btn");
+
+postBtn.addEventListener("click", function () {
+  const newCommentValue = newComment.value;
+  const peraComments = document.createElement("p");
+
+  peraComments.innerText = newCommentValue;
+  TextArea.appendChild(peraComments);
+  newComment.value = "";
+});
+
+// =-=-=-=-=-=-= OnClick event handler -=-=-=-=-==-=
 // ==== backgroundColor green button option : 1 ======
 function makeGreen() {
   document.body.style.backgroundColor = "green";
@@ -62,8 +91,6 @@ function makeGreen() {
 document.getElementById("make_yellow").addEventListener("click", function () {
   document.body.style.backgroundColor = "yellow";
 });
-
-*/
 
 /*
 
@@ -96,8 +123,3 @@ document.getElementById("btn_add_item").addEventListener("click", function (e) {
 });
 
 */
-
-// =-=-==- keyup Event Handlers
-document.getElementById("user_email").addEventListener("keyup", function (e) {
-  console.log(e.target.value);
-});
