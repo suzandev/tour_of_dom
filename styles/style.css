@@ -1,7 +1,24 @@
+button {
+  cursor: pointer;
+}
+
 h1 {
   color: lightcoral;
 }
 
+h3 {
+  color: dodgerblue;
+}
+
 #fruits_title {
   color: black;
+}
+
+.shopping_card_section {
+  margin-top: 30px;
+}
+
+.shopping_card_section input,
+button {
+  padding: 10px;
 }

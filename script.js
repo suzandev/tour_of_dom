@@ -52,6 +52,7 @@ li.innerText = "pahartoli bon";
 placesList.appendChild(li);
 */
 
+/*
 // =-=-=-=-=-= input box handler section =-=-=-=-=-=
 
 document.getElementById("btn_update").addEventListener("click", function () {
@@ -67,6 +68,9 @@ document.getElementById("btn_update").addEventListener("click", function () {
   }
 });
 
+*/
+
+/*
 // =-=-=-=-=-= TextArea handler section =-=-=-=-=-=
 
 const TextArea = document.getElementById("text_area");
@@ -81,6 +85,8 @@ postBtn.addEventListener("click", function () {
   TextArea.appendChild(peraComments);
   newComment.value = "";
 });
+
+*/
 
 // =-=-=-=-=-=-= OnClick event handler -=-=-=-=-==-=
 // ==== backgroundColor green button option : 1 ======
@@ -123,3 +129,54 @@ document.getElementById("btn_add_item").addEventListener("click", function (e) {
 });
 
 */
+
+// ===================
+// shopping_card_section start
+
+const addProduct = () => {
+  const productField = document.getElementById("product_name");
+  const quantityField = document.getElementById("product_quantity");
+
+  const product = productField.value;
+  const quantity = quantityField.value;
+  productField.value = "";
+  quantityField.value = "";
+  displayProduct(product, quantity);
+  saveProductToLocalStorage(product, quantity);
+};
+
+const displayProduct = (product, quantity) => {
+  const ul = document.getElementById("product_container");
+
+  const li = document.createElement("li");
+  li.innerHTML = `${product}: ${quantity}`;
+  ul.appendChild(li);
+};
+
+getStoredShoppingCart = () => {
+  let cart = {};
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    cart = JSON.parse(storedCart);
+  }
+  return cart;
+};
+
+const saveProductToLocalStorage = (product, quantity) => {
+  const cart = getStoredShoppingCart();
+  cart[product] = quantity;
+  const cartStringify = JSON.stringify(cart);
+  localStorage.setItem("cart", cartStringify);
+};
+
+const displayProductsFromLocalStorage = () => {
+  const savedCart = getStoredShoppingCart();
+
+  for (const product in savedCart) {
+    const quantity = savedCart[product];
+    displayProduct(product, quantity);
+    console.log(product, quantity);
+  }
+};
+
+displayProductsFromLocalStorage();
